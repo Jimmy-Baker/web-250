@@ -2,14 +2,30 @@
 
 class Bicycle {
 
-  public $brand;
-  public $model;
-  public $year;
-  public $description = 'Used bicycle';
-  private $weight_kg = 0; // unusable by unicycle
+  private $brand;
+  private $model;
+  private $year;
+  private $description = 'Used bicycle';
+  protected $weight_kg = 0; // unusable by unicycle
   protected $wheels = 2;
 
   // Getters
+  public function brand() {
+    return $this->brand;
+  }
+  
+  public function model() {
+    return $this->model;
+  }
+  
+  public function year() {
+    return $this->year;
+  }
+  
+  public function description() {
+    return $this->description;
+  }
+  
   public function name() {
     return "$this->brand $this->model ($this->year)";
   }
@@ -29,6 +45,22 @@ class Bicycle {
   }
   
   //Setters
+  public function set_brand($value) {
+    $this->brand = $value;
+  }
+  
+  public function set_model($value) {
+    $this->model = $value;
+  }
+  
+  public function set_year($value) {
+    $this->year = $value;
+  }
+  
+  public function set_description($value) {
+    $this->description = $value;
+  }
+  
   public function set_weight_kg($value) {
     $this->weight_kg = floatval($value);
   }
@@ -44,9 +76,9 @@ class Unicycle extends Bicycle {
 }
 
 $lekker = new Bicycle;
-$lekker->brand = 'Lekker';
-$lekker->model = 'Jordaan';
-$lekker->year = '2020';
+$lekker->set_brand('Lekker');
+$lekker->set_model('Jordaan');
+$lekker->set_year('2020');
 
 $uni = new Unicycle;
 
@@ -63,10 +95,17 @@ echo $lekker->weight_lbs() . "<br>";
 echo "</p>";
 
 echo "<p>";
-echo "Set weight using lbs<br />";
+echo "Set weight using lbs<br>";
 $lekker->set_weight_lbs(2);
-echo $lekker->weight_kg() . "<br />";
-echo $lekker->weight_lbs() . "<br />";
+echo $lekker->weight_kg() . "<br>";
+echo $lekker->weight_lbs() . "<br>";
+echo "</p>";
+
+echo "<p>";
+echo "Featured Bicycle<br>";
+echo $lekker->brand() . "<br>";
+echo $lekker->model() . "<br>";
+echo $lekker->year() . "<br>";
 echo "</p>";
 
 ?>
