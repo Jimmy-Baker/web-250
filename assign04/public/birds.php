@@ -15,10 +15,10 @@
 
     <table id="inventory">
       <tr>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Year</th>
-        <th>Category</th>
+        <th>Common Name</th>
+        <th>Habitat</th>
+        <th>Food</th>
+        <th>Nest Placement</th>
         <th>Gender</th>
         <th>Color</th>
         <th>Weight</th>
