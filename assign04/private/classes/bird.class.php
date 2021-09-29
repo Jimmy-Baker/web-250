@@ -8,12 +8,12 @@ class Bird {
   public $nesting = "tree";
   public $behavior;
   public $conservation;
-  public $backyardTips;
+  public $tips;
       
   public static $instance_count = 0;
   public static $egg_num = 0;
   
-  public const CONSERVATION = ['Unknown','Low', 'Moderate','High', 'Extreme'];
+  private const CONSERVATION = ['Unknown','Low', 'Moderate','High', 'Extreme'];
 
   public static function create() {
     $class = get_called_class();
@@ -24,12 +24,23 @@ class Bird {
   
   public function __construct($args=[]) {
     //$this->brand = isset($args['brand']) ? $args['brand'] : '';
-    $this->commonName = $args['brand'] ?? '';
-    $this->habitat = $args['model'] ?? '';
-    $this->food = $args['year'] ?? '';
-    $this->nesting = $args['category'] ?? '';
-    $this->behavior = $args['color'] ?? '';
-    $this->conservation = $args['description'] ?? '';
+    $this->commonName = $args['common_name'] ?? '';
+    $this->habitat = $args['habitat'] ?? '';
+    $this->food = $args['food'] ?? '';
+    $this->nesting = $args['nest_placement'] ?? '';
+    $this->behavior = $args['behavior'] ?? '';
+    $this->conservation = $args['conservation_id'] ?? '';
+    $this->tips = $args['backyard_tips'] ?? '';
+  }
+  
+  public function status() {
+    switch ($this->conservation) {
+      case 0: return self::CONSERVATION[0]; break;
+      case 1: return self::CONSERVATION[1]; break;
+      case 2: return self::CONSERVATION[2]; break;
+      case 3: return self::CONSERVATION[3]; break;
+      case 4: return self::CONSERVATION[4]; break;
+    }  
   }
 
 
