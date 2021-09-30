@@ -39,7 +39,6 @@
         <td><?php echo h($bird->tips); ?></td>
       </tr>
       <?php } ?>
-      <p> test </p>
     </table>
   </div>
 
