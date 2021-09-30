@@ -33,7 +33,7 @@
 
   // Autoload class definitions
   function my_autoload($class) {
-    if(preg_match('/\A\w+\Z/', $class)) {
+    if(preg_match('/\A\w+\Z/i', $class)) {
       include('classes/' . $class . '.class.php');
     }
   }
