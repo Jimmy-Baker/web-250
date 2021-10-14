@@ -5,7 +5,7 @@ $password = 'Butterfly23';
 
 try {
 $db = new PDO('mysql:host=127.0.0.1;dbname=u308745100_birdQueries;charset=utf8', $user, $password);
-// var_dump($db);
+var_dump($db);
 }
 
 catch(Exception $e) {
