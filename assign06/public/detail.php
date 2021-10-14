@@ -13,8 +13,6 @@
 
 <?php
   $birdy = Bird::find_id($id);
-  print_r($birdy);
-  echo count($birdy);
 ?>
 <?php $page_title = 'Detail: ' . $birdy->commonName; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
