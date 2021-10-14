@@ -31,16 +31,16 @@ class Bird {
     return self::find_sql($sql);
   }
   
-  public static function find_hard() {
-    $stmt = self::$database->prepare("SELECT * FROM birds");
+  public static function find_id($id) {
+    $stmt = self::$database->prepare("SELECT * FROM birds WHERE id = :id");
+    $stmt->bindParam(':id', $id);
     $stmt->execute();
     
-    $object_array = [];
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-      $object_array[] = self::instantiate($row);
+    $object = 0;
+    while($record = $stmt->fetch(PDO::FETCH_ASSOC)){
+      $object = self::instantiate($record);
     }
-    
-    return $object_array;
+      return $object;
   }
   
   static protected function instantiate($record) {
