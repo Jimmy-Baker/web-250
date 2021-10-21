@@ -34,11 +34,11 @@ if(is_post_request()) {
   <div class="bicycle new">
     <h1>Create Bicycle</h1>
 
-    <?php echo display_errors($bicycle->errors); ?>
 
     <form action="<?php echo url_for('/staff/bicycles/new.php'); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
+      <?php echo display_errors($bicycle->errors); ?>
 
       <div id="operations">
         <input type="submit" value="Create Bicycle" />
