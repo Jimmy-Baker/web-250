@@ -48,12 +48,13 @@ class Bird {
     foreach($record as $property => $value) {
       if(property_exists($object, $property)) {
         $object->$property = $value;
-      } else {
-        $object->$property = self::$property;
+  //    } else {
+  //      $object->$property = self::$property;
       }
     }
     return $object;
   }
+
   
   public $id;
   public $commonName;

@@ -15,7 +15,7 @@
   $birdy = Bird::find_id($id);  
 ?>
 
-<?php $page_title = 'Detail: ' . $birdy->commonName; ?>
+<?php $page_title = 'Detail: ' . $birdy->common_name; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <div id="main">
@@ -27,7 +27,7 @@
     <div class="detail">
       <dl>
         <dt>Common Name</dt>
-        <dd><?php echo h($birdy->commonName); ?></dd>
+        <dd><?php echo h($birdy->common_name); ?></dd>
       </dl>
       <dl>
         <dt>Habitat</dt>
