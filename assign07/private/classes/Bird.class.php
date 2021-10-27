@@ -4,7 +4,7 @@ class Bird {
 
   // ------ START OF ACTIVE RECORD CODE ----- //
   protected static $database;
-  static protected $db_columns = ['common_name', 'habitat', 'food', 'nesting', 'behavior', 'conservation_id', 'tips'];
+  static protected $db_columns = ['id', 'common_name', 'habitat', 'food', 'nesting', 'behavior', 'conservation_id', 'tips'];
   // static protected $db_params = [':common_name', ':habitat', ':food', ':nesting', ':behavior', ':conservation_id', ':tips'];
   
   public static function set_database($database) {
@@ -59,9 +59,9 @@ class Bird {
   }
   
   public function create() {
+    $attributes = $this->attributes();
     $parameters = preg_filter('/^/', ':', self::$db_columns);
     $sql = self::$database->prepare("INSERT INTO birds (" . join(', ', self::$db_columns).") VALUES (" . join(', ', $parameters).")");
-    
     
     foreach (self::$db_columns as $column) {
       $concat = ':'.$column;
@@ -109,11 +109,12 @@ class Bird {
     }
   }
   
+  //Properties which have database columns, ex id
   public function attributes() {
     $attributes = [];
     foreach(self::$db_columns as $column) {
       if($column == 'id') {continue;}
-      $attributes[$column] = $this->{$column};
+      $attributes[$column] = $this->$column;
     }
     return $attributes;
   }
