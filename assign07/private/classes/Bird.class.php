@@ -5,7 +5,7 @@ class Bird {
   // ------ START OF ACTIVE RECORD CODE ----- //
   protected static $database;
   static protected $db_columns = ['common_name', 'habitat', 'food', 'nesting', 'behavior', 'conservation_id', 'tips'];
-  static protected $db_params = [':common_name', ':habitat', ':food', ':nesting', ':behavior', ':conservation_id', ':tips'];
+  // static protected $db_params = [':common_name', ':habitat', ':food', ':nesting', ':behavior', ':conservation_id', ':tips'];
   
   public static function set_database($database) {
     self::$database = $database;
@@ -59,18 +59,15 @@ class Bird {
   }
   
   public function create() {
-    $sql = self::$database->prepare("INSERT INTO birds (" . join(', ', self::$db_columns).") VALUES (" . join(', ', self::$db_params).")");
-    // for ($i=0; $i < count(self::$db_columns) ; $i++){
-    //   $column = $db_columns[$i];
-    //   $sql->bindParam(self::$db_params[$i], $this->$column);
-    // }  I still need to figure out the alternate loop here
-    $sql->bindParam(':common_name', $this->common_name);
-    $sql->bindParam(':habitat', $this->habitat);
-    $sql->bindParam(':food', $this->food);
-    $sql->bindParam(':nesting', $this->nesting);
-    $sql->bindParam(':behavior', $this->behavior);
-    $sql->bindParam(':conservation_id', $this->conservation_id);
-    $sql->bindParam(':tips', $this->tips);
+    $parameters = preg_filter('/^/', ':', self::$db_columns);
+    $sql = self::$database->prepare("INSERT INTO birds (" . join(', ', self::$db_columns).") VALUES (" . join(', ', $parameters).")");
+    
+    
+    foreach (self::$db_columns as $column) {
+      $concat = ':'.$column;
+      $sql->bindParam($concat, $this->{$column});
+    }
+    
     try {
       $result = $sql->execute();
       if($result){
@@ -116,7 +113,7 @@ class Bird {
     $attributes = [];
     foreach(self::$db_columns as $column) {
       if($column == 'id') {continue;}
-      $attributes[$column] = $this->$column;
+      $attributes[$column] = $this->{$column};
     }
     return $attributes;
   }
