@@ -12,7 +12,7 @@
     <header>
       <h1>
         <a href="<?php echo url_for('/index.php'); ?>">
-          <img class="bird-icon" src="<?php echo url_for('/images/USDOT_bicycle_symbol.svg') ?>" /><br />
+          <img class="bird-icon" src="<?php echo url_for('/images/tufted-titmouse.jpg') ?>" /><br />
           WNC Birds
         </a>
       </h1>

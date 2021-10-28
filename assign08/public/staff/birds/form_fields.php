@@ -37,8 +37,8 @@ if(!isset($bird)) {
   <dd>
     <select name="bird[conservation_id]">
       <option value=""></option>
-    <?php foreach(Bird::CONSERVATION as $category) { ?>
-      <option value="<?php echo $category; ?>" <?php if($bird->status() == $category) { echo 'selected';} ?> > <?php echo $category; ?></option>
+    <?php foreach(Bird::CONSERVATION as $key => $value) { ?>
+      <option value="<?php echo $key; ?>" <?php if($bird->status() == $value) { echo 'selected';} ?> > <?php echo $value; ?></option>
     <?php } ?>
     </select>
   </dd>
