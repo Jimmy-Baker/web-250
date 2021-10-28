@@ -13,6 +13,4 @@
   
 </div>
 
-<?php $super_hero_image = 'AdobeStock_50633008_xlarge.jpeg'; ?>
-
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
