@@ -17,7 +17,7 @@ class Bird extends DatabaseObject {
   public const CONSERVATION = ['Unknown','Low', 'Moderate','High', 'Extreme'];
 
   public function __construct($args=[]) {
-    //$this->common_name = isset($args['common_name']) ? $args['common_name'] : '';
+    //$this->property = isset($args['property']) ? $args['property'] : '';
     $this->common_name = $args['common_name'] ?? '';
     $this->habitat = $args['habitat'] ?? '';
     $this->food = $args['food'] ?? '';
