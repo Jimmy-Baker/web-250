@@ -51,7 +51,6 @@ class Bird extends DatabaseObject {
     return $this->errors;
   }
 
-
 }
 
 ?>

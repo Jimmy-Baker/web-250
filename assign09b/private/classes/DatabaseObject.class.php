@@ -7,6 +7,10 @@ class DatabaseObject {
   static protected $columns = [];
   public $errors = [];
   public $error_ids = [];
+  // public $errors_obj = (object) [
+  //   'ids' => [],
+  //   'messages' => []
+  // ];
 
   static public function set_database($database) {
     self::$database = $database;
