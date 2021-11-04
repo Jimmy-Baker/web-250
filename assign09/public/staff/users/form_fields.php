@@ -27,9 +27,9 @@ if(!isset($user)) {
 </dl>
 
 <dl>
-  <dt>Username</dt>
-  <dd><input type="radio" id="member" name="user[user_level]" value="m" <?php if($user->user_level = 'm'){echo "checked";}; ?>/></dd>
-  <dd><input type="radio" id="admin" name="user[user_level]" value="a" <?php if($user->user_level = 'a'){echo "checked";}; ?>/></dd>
+  <dt>User Level</dt>
+  <dd><input type="radio" id="member" name="user[user_level]" value="m" <?php if($user->user_level == 'm'){echo "checked";}; ?>/><label for="member">Member</label></dd>
+  <dd><input type="radio" id="admin" name="user[user_level]" value="a" <?php if($user->user_level == 'a'){echo "checked";}; ?>/><label for="admin">Admin</label></dd>
 </dl>
 
 <dl>

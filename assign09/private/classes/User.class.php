@@ -30,6 +30,12 @@ class User extends DatabaseObject {
     return $this->first_name . " " . $this->last_name;
   }
 
+  /**  
+   * Use built-in PHP methods to encrypt a property/password  
+   * 
+   * @param {property} $this->password
+   *   
+   **/
   protected function set_hashed_password() {
     $this->hashed_password = password_hash($this->password, PASSWORD_BCRYPT);
   }
@@ -38,11 +44,23 @@ class User extends DatabaseObject {
     return password_verify($password, $this->hashed_password);
   }
 
+  /**   
+   * Modify DatabaseObject::create() to encrypt the password before instantiation  
+   * 
+   * @returns {object} parent::create() (new instance of a DBO) 
+   * 
+   **/
   protected function create() {
     $this->set_hashed_password();
     return parent::create();
   }
 
+  /**   
+   * Modifies DatabaseObject::update() to encrypt the password before updating  
+   * 
+   * @returns {object} parent::update() (updated instance of a DBO) 
+   * 
+   **/
   protected function update() {
     if($this->password != '') {
       $this->set_hashed_password();
@@ -107,8 +125,8 @@ class User extends DatabaseObject {
       }
     }
     
-    if($this->user_level != 'a' || 'm') {
-      $this->errors[] = "User level must be A or M.";
+    if(!isset($this->user_level)) {
+      $this->errors[] = "User level must be selected";
     }
 
     return $this->errors;
