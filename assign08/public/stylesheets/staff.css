@@ -139,3 +139,7 @@ dd {
   margin: 1em 30px;
   width: 890px;
 }
+
+.inputerror {
+  border: 2px solid #f00;
+}

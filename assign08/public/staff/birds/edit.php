@@ -49,7 +49,6 @@ if(is_post_request()) {
 
       <?php include('form_fields.php'); ?>
       <?php echo display_errors($bird->errors); ?>
-      
       <div id="operations">
         <input type="submit" value="Edit Bird" />
       </div>

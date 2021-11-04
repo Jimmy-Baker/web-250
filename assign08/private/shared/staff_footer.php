@@ -3,6 +3,7 @@
 </footer>
 
 </body>
+<?php echo display_error_ids($bird->error_ids); ?>
 </html>
 
 <?php
