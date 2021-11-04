@@ -14,7 +14,7 @@ $birds = Bird::find_all();
     <h1>Birds</h1>
 
     <div class="actions">
-      <a class="action" href="<?php echo url_for('/staff/birds/new.php'); ?>">Add Bird</a>
+      <a class="action" href="<?= url_for('/staff/birds/new.php'); ?>">Add Bird</a>
     </div>
 
   	<table class="list">
@@ -34,17 +34,17 @@ $birds = Bird::find_all();
 
       <?php foreach($birds as $bird) { ?>
         <tr>
-          <td><?php echo h($bird->id); ?></td>
-          <td><?php echo h($bird->common_name); ?></td>
-          <td><?php echo h($bird->habitat); ?></td>
-          <td><?php echo h($bird->food); ?></td>
-          <td><?php echo h($bird->nesting); ?></td>
-          <td><?php echo h($bird->behavior); ?></td>
-          <td><?php echo h($bird->status()); ?></td>
-          <td><?php echo h($bird->tips); ?></td>
-          <td><a class="action" href="<?php echo url_for('/staff/birds/show.php?id=' . h(u($bird->id))); ?>">View</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/birds/edit.php?id=' . h(u($bird->id))); ?>">Edit</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/birds/delete.php?id=' . h(u($bird->id))); ?>">Delete</a></td>
+          <td><?= h($bird->id); ?></td>
+          <td><?= h($bird->common_name); ?></td>
+          <td><?= h($bird->habitat); ?></td>
+          <td><?= h($bird->food); ?></td>
+          <td><?= h($bird->nesting); ?></td>
+          <td><?= h($bird->behavior); ?></td>
+          <td><?= h($bird->status()); ?></td>
+          <td><?= h($bird->tips); ?></td>
+          <td><a class="action" href="<?= url_for('/staff/birds/show.php?id=' . h(u($bird->id))); ?>">View</a></td>
+          <td><a class="action" href="<?= url_for('/staff/birds/edit.php?id=' . h(u($bird->id))); ?>">Edit</a></td>
+          <td><a class="action" href="<?= url_for('/staff/birds/delete.php?id=' . h(u($bird->id))); ?>">Delete</a></td>
     	  </tr>
       <?php } ?>
   	</table>

@@ -6,9 +6,9 @@
 
 <html lang="en">
   <head>
-    <title>WNC Birds - <?php echo h($page_title); ?></title>
+    <title>WNC Birds - <?= h($page_title); ?></title>
     <meta charset="utf-8">
-    <link rel="stylesheet" media="all" href="<?php echo url_for('/stylesheets/staff.css'); ?>" />
+    <link rel="stylesheet" media="all" href="<?= url_for('/stylesheets/staff.css'); ?>" />
   </head>
 
   <body>
@@ -18,8 +18,8 @@
 
     <navigation>
       <ul>
-        <li><a href="<?php echo url_for('/staff/index.php'); ?>">Menu</a></li>
+        <li><a href="<?= url_for('/staff/index.php'); ?>">Menu</a></li>
       </ul>
     </navigation>
 
-    <?php echo display_session_message(); ?>
+    <?= display_session_message(); ?>

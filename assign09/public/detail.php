@@ -28,31 +28,31 @@
     <div class="detail">
       <dl>
         <dt>Common Name</dt>
-        <dd><?php echo h($birdy->common_name); ?></dd>
+        <dd><?= h($birdy->common_name); ?></dd>
       </dl>
       <dl>
         <dt>Habitat</dt>
-        <dd><?php echo h($birdy->habitat); ?></dd>
+        <dd><?= h($birdy->habitat); ?></dd>
       </dl>
       <dl>
         <dt>Food</dt>
-        <dd><?php echo h($birdy->food); ?></dd>
+        <dd><?= h($birdy->food); ?></dd>
       </dl>
       <dl>
         <dt>Nest Placement</dt>
-        <dd><?php echo h($birdy->nesting); ?></dd>
+        <dd><?= h($birdy->nesting); ?></dd>
       </dl>
       <dl>
         <dt>Behavior</dt>
-        <dd><?php echo h($birdy->behavior); ?></dd>
+        <dd><?= h($birdy->behavior); ?></dd>
       </dl>
       <dl>
         <dt>Conservation</dt>
-        <dd><?php echo h($birdy->status()); ?></dd>
+        <dd><?= h($birdy->status()); ?></dd>
       </dl>
       <dl>
         <dt>Backyard Tips</dt>
-        <dd><?php echo h($birdy->tips); ?></dd>
+        <dd><?= h($birdy->tips); ?></dd>
       </dl>
     </div>
 

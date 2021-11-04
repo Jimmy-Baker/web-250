@@ -29,16 +29,16 @@ if(is_post_request()) {
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/birds/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?= url_for('/staff/birds/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="bird new">
     <h1>Create Bird</h1>
 
 
-    <form action="<?php echo url_for('/staff/birds/new.php'); ?>" method="post">
+    <form action="<?= url_for('/staff/birds/new.php'); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
-      <?php echo display_errors($bird->errors); ?>
+      <?= display_errors($bird->errors); ?>
 
       <div id="operations">
         <input type="submit" value="Create Bird" />

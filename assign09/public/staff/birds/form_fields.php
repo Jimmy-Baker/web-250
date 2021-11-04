@@ -9,27 +9,27 @@ if(!isset($bird)) {
 
 <dl>
   <dt>Common Name</dt>
-  <dd><input type="text" id="common_name" name="bird[common_name]" value="<?php echo h($bird->common_name); ?>" /></dd>
+  <dd><input type="text" id="common_name" name="bird[common_name]" value="<?= h($bird->common_name); ?>" /></dd>
 </dl>
 
 <dl>
   <dt>Habitat</dt>
-  <dd><input type="text" id="habitat" name="bird[habitat]" value="<?php echo h($bird->habitat); ?>" /></dd>
+  <dd><input type="text" id="habitat" name="bird[habitat]" value="<?= h($bird->habitat); ?>" /></dd>
 </dl>
 
 <dl>
   <dt>Food</dt>
-  <dd><input type="text" id="food" name="bird[food]" value="<?php echo h($bird->food); ?>" /></dd>
+  <dd><input type="text" id="food" name="bird[food]" value="<?= h($bird->food); ?>" /></dd>
 </dl>
 
 <dl>
   <dt>Nesting</dt>
-  <dd><input type="text" id="nesting" name="bird[nesting]" value="<?php echo h($bird->nesting); ?>" /></dd>
+  <dd><input type="text" id="nesting" name="bird[nesting]" value="<?= h($bird->nesting); ?>" /></dd>
 </dl>
 
 <dl>
   <dt>Behavior</dt>
-  <dd><input type="text" id="behavior" name="bird[behavior]" value="<?php echo h($bird->behavior); ?>" /></dd>
+  <dd><input type="text" id="behavior" name="bird[behavior]" value="<?= h($bird->behavior); ?>" /></dd>
 </dl>
 
 <dl>
@@ -38,7 +38,7 @@ if(!isset($bird)) {
     <select id="conservation_id" name="bird[conservation_id]">
       <option value=""></option>
     <?php foreach(Bird::CONSERVATION as $key => $value) { ?>
-      <option value="<?php echo $key; ?>" <?php if($bird->status() == $value) { echo 'selected';} ?> > <?php echo $value; ?></option>
+      <option value="<?= $key; ?>" <?php if($bird->status() == $value) { echo 'selected';} ?> > <?= $value; ?></option>
     <?php } ?>
     </select>
   </dd>
@@ -46,6 +46,6 @@ if(!isset($bird)) {
 
 <dl>
   <dt>Tips</dt>
-  <dd><input type="text" id="tips" name="bird[tips]" value="<?php echo h($bird->tips); ?>" /></dd>
+  <dd><input type="text" id="tips" name="bird[tips]" value="<?= h($bird->tips); ?>" /></dd>
 </dl>
 

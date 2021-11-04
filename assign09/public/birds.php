@@ -30,14 +30,14 @@
       foreach($birds as $bird) {
 ?>
       <tr>
-        <td><?php echo h($bird->common_name); ?></td>
-        <td><?php echo h($bird->habitat); ?></td>
-        <td><?php echo h($bird->food); ?></td>
-        <td><?php echo h($bird->nesting); ?></td>
-        <td><?php echo h($bird->behavior); ?></td>
-        <td><?php echo h($bird->status()); ?></td>
-        <td><?php echo h($bird->tips); ?></td>
-        <td><a href="detail.php?id=<?php echo $bird->id; ?>">View</a></td>
+        <td><?= h($bird->common_name); ?></td>
+        <td><?= h($bird->habitat); ?></td>
+        <td><?= h($bird->food); ?></td>
+        <td><?= h($bird->nesting); ?></td>
+        <td><?= h($bird->behavior); ?></td>
+        <td><?= h($bird->status()); ?></td>
+        <td><?= h($bird->tips); ?></td>
+        <td><a href="detail.php?id=<?= $bird->id; ?>">View</a></td>
       </tr>
       <?php } ?>
     </table>

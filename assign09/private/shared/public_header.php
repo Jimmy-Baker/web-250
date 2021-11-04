@@ -4,15 +4,15 @@
   <head>
     <title>WNC Birds <?php if(isset($page_title)) { echo '- ' . h($page_title); } ?></title>
     <meta charset="utf-8">
-    <link rel="stylesheet" media="all" href="<?php echo url_for('/stylesheets/public.css'); ?>" />
+    <link rel="stylesheet" media="all" href="<?= url_for('/stylesheets/public.css'); ?>" />
   </head>
 
   <body>
 
     <header>
       <h1>
-        <a href="<?php echo url_for('/index.php'); ?>">
-          <img class="bird-icon" src="<?php echo url_for('/images/tufted-titmouse.jpg') ?>" /><br />
+        <a href="<?= url_for('/index.php'); ?>">
+          <img class="bird-icon" src="<?= url_for('/images/tufted-titmouse.jpg') ?>" /><br />
           WNC Birds
         </a>
       </h1>

@@ -1,2 +1,2 @@
-<p>Copyright <?php echo date('Y'); ?>, WNC Birds</p>
+<p>Copyright <?= date('Y'); ?>, WNC Birds</p>
 
