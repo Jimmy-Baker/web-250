@@ -73,63 +73,63 @@ class User extends DatabaseObject {
   }
 
   protected function validate() {
-    $this->errors = [];
+    $this->error_array = [];
 
     if(is_blank($this->first_name)) {
-      $this->errors[] = "First name cannot be blank.";
+      $this->error_array[] = ["#first_name", "First name cannot be blank."];
     } elseif (!has_length($this->first_name, array('min' => 2, 'max' => 255))) {
-      $this->errors[] = "First name must be between 2 and 255 characters.";
+      $this->error_array[] = ["#first_name", "First name must be between 2 and 255 characters."];
     }
 
     if(is_blank($this->last_name)) {
-      $this->errors[] = "Last name cannot be blank.";
+      $this->error_array[] = ["#last_name", "Last name cannot be blank."];
     } elseif (!has_length($this->last_name, array('min' => 2, 'max' => 255))) {
-      $this->errors[] = "Last name must be between 2 and 255 characters.";
+      $this->error_array[] = ["#last_name", "Last name must be between 2 and 255 characters."];
     }
 
     if(is_blank($this->email)) {
-      $this->errors[] = "Email cannot be blank.";
+      $this->error_array[] = ["#email", "Email cannot be blank."];
     } elseif (!has_length($this->email, array('max' => 255))) {
-      $this->errors[] = "Last name must be less than 255 characters.";
+      $this->error_array[] = ["#last_name", "Last name must be less than 255 characters."];
     } elseif (!has_valid_email_format($this->email)) {
-      $this->errors[] = "Email must be a valid format.";
+      $this->error_array[] = ["#email", "Email must be a valid format."];
     }
 
     if(is_blank($this->username)) {
-      $this->errors[] = "Username cannot be blank.";
+      $this->error_array[] = ["#username", "Username cannot be blank."];
     } elseif (!has_length($this->username, array('min' => 8, 'max' => 255))) {
-      $this->errors[] = "Username must be between 8 and 255 characters.";
+      $this->error_array[] = ["#username", "Username must be between 8 and 255 characters."];
     } elseif (!has_unique_username($this->username, $this->id ?? 0)) {
-      $this->errors[] = "Username not allowed. Try another.";
+      $this->error_array[] = ["#username","Username not allowed. Try another."];
     }
 
     if($this->password_required) {
       if(is_blank($this->password)) {
-        $this->errors[] = "Password cannot be blank.";
+        $this->error_array[] = ["#password", "Password cannot be blank."];
       } elseif (!has_length($this->password, array('min' => 12))) {
-        $this->errors[] = "Password must contain 12 or more characters";
+        $this->error_array[] = ["#password", "Password must contain 12 or more characters"];
       } elseif (!preg_match('/[A-Z]/', $this->password)) {
-        $this->errors[] = "Password must contain at least 1 uppercase letter";
+        $this->error_array[] = ["#password", "Password must contain at least 1 uppercase letter"];
       } elseif (!preg_match('/[a-z]/', $this->password)) {
-        $this->errors[] = "Password must contain at least 1 lowercase letter";
+        $this->error_array[] = ["#password", "Password must contain at least 1 lowercase letter"];
       } elseif (!preg_match('/[0-9]/', $this->password)) {
-        $this->errors[] = "Password must contain at least 1 number";
+        $this->error_array[] = ["#password", "Password must contain at least 1 number"];
       } elseif (!preg_match('/[^A-Za-z0-9\s]/', $this->password)) {
-        $this->errors[] = "Password must contain at least 1 symbol";
+        $this->error_array[] = ["#password", "Password must contain at least 1 symbol"];
       }
 
       if(is_blank($this->confirm_password)) {
-        $this->errors[] = "Confirm password cannot be blank.";
+        $this->error_array[] = ["#confirm_password", "Confirm password cannot be blank."];
       } elseif ($this->password !== $this->confirm_password) {
-        $this->errors[] = "Password and confirm password must match.";
+        $this->error_array[] = ["#confirm_password", "Password and confirm password must match."];
       }
     }
     
     if(!isset($this->user_level)) {
-      $this->errors[] = "User level must be selected";
+      $this->error_array[] = ["#user_level", "User level must be selected"];
     }
 
-    return $this->errors;
+    return $this->error_array;
   }
 
   static public function find_by_username($username) {

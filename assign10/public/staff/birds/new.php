@@ -40,7 +40,7 @@ if(is_post_request()) {
     <form action="<?= url_for('/staff/birds/new.php'); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
-      <?= display_errors($bird->errors); ?>
+      <?= display_errors($bird->error_array); ?>
 
       <div id="operations">
         <input type="submit" value="Create Bird" />

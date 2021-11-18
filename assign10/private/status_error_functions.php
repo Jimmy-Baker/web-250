@@ -10,14 +10,14 @@ function require_login() {
 }
 
 
-function display_errors($errors=array()) {
+function display_errors($error_array=array()) {
   $output = '';
-  if(!empty($errors)) {
+  if(!empty($error_array)) {
     $output .= "<div class=\"errors\">";
     $output .= "Please fix the following errors:";
     $output .= "<ul>";
-    foreach($errors as $error) {
-      $output .= "<li>" . h($error) . "</li>";
+    foreach($error_array as $error) {
+      $output .= "<li>" . h($error[1]) . "</li>";
     }
     $output .= "</ul>";
     $output .= "</div>";
@@ -25,27 +25,21 @@ function display_errors($errors=array()) {
   return $output;
 }
 
-function display_error_ids($error_ids=array()){
+function error_css($error_array=array()){
   $output = '';
-  if(!empty($error_ids)) {
+  if(!empty($error_array)) {
+    
     $output .="<script>";
-    foreach($error_ids as $key=>$value){
-      $output .="element_" . $key . "=document.querySelector('". $value ."');";
+    foreach($error_array as $key=>$value){
+      
+      $output .="element_" . $key . "=document.querySelector('". $value[0] ."');";
       $output .="element_" . $key . ".classList.add('inputerror');";
-      // $output .="element_" . $key . ".style.border='2px solid red';";
     }
     $output .="</script>";
   }
   return $output;
 }
 
-// function get_and_clear_session_message() {
-//   if(isset($_SESSION['message']) && $_SESSION['message'] != '') {
-//     $msg = $_SESSION['message'];
-//     unset($_SESSION['message']);
-//     return $msg;
-//   }
-// }
 
 function display_session_message() {
   global $session;

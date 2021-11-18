@@ -36,7 +36,7 @@ if(is_post_request()) {
   <div class="user new">
     <h1>Create User</h1>
 
-    <?= display_errors($user->errors); ?>
+    <?= display_errors($user->error_array); ?>
 
     <form action="<?= url_for('/staff/users/new.php'); ?>" method="post">
 

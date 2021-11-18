@@ -5,8 +5,6 @@ class DatabaseObject {
   static protected $database;
   static protected $table_name = "";
   static protected $columns = [];
-  public $errors = [];
-  public $error_ids = [];
   public $error_array = [];
 
   static public function set_database($database) {

@@ -45,7 +45,7 @@ if(is_post_request()) {
   <div class="user edit">
     <h1>Edit User</h1>
 
-    <?= display_errors($user->errors); ?>
+    <?= display_errors($user->error_array); ?>
 
     <form action="<?= url_for('/staff/users/edit.php?id=' . h(u($id))); ?>" method="post">
 
