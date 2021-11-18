@@ -11,7 +11,13 @@
     <h2>Main Menu</h2>
     <ul>
       <li><a href="<?= url_for('/staff/birds/index.php'); ?>">Birds</a></li>
-      <li><a href="<?= url_for('/staff/users/index.php'); ?>">Users</a></li>
+<?php if($session->user_level == 'a') {
+    echo '<li><a href="';
+    echo url_for('/staff/users/index.php');
+    echo '">Users</a></li>';
+  } 
+  
+?>
     </ul>
   </div>
 
