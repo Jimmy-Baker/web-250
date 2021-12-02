@@ -1,0 +1,57 @@
+body {
+  background: #fff url('../images/cat.png') 30vw 30vh / 70vw no-repeat;
+  background: url('../images/cat.png') 30vw 30vh / 70vw no-repeat, -moz-linear-gradient(top, #ffffff 0%, #e8f2f4 100%);
+  background: url('../images/cat.png') 30vw 30vh / 70vw no-repeat, -webkit-linear-gradient(top, #ffffff 0%, #e8f2f4 100%);
+  background: url('../images/cat.png') 30vw 30vh / 70vw no-repeat, linear-gradient(to bottom, #ffffff 0%, #e8f2f4 100%);
+  min-height: 100vh;
+  height: 100%;
+}
+
+header {
+  border-bottom: 2px solid #aaa;
+  /* box-shadow: 0 8px 8px -10px #aaa; */
+  margin: auto;
+  padding-top: 8rem;
+  width: 60%;
+}
+
+header h1 {
+  text-align: center;
+}
+
+header h1 a {
+  color: #555;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+#main {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+#menu {
+  list-style: none;
+}
+
+#menu li {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#menu .button {
+  display: block;
+  margin: 1rem auto;
+  width: 50%;
+}
+
+footer {
+  background: #e8f2f4;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  padding-top: 2rem;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}

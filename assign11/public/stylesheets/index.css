@@ -1,0 +1,72 @@
+body {
+  background: #fff url('../images/finch.png') 0 5rem / 30% no-repeat;
+  background: url('../images/finch.png') 0 5rem / 30% no-repeat, -moz-linear-gradient(top, #ffffff 0%, #e8f2f4 100%);
+  background: url('../images/finch.png') 0 5rem / 30% no-repeat, -webkit-linear-gradient(top, #ffffff 0%, #e8f2f4 100%);
+  background: url('../images/finch.png') 0 5rem / 30% no-repeat, linear-gradient(to bottom, #ffffff 0%, #e8f2f4 100%);
+  min-height: 100vh;
+  height: 100%;
+}
+
+header {
+  border-bottom: 2px solid #aaa;
+  /* box-shadow: 0 8px 8px -10px #aaa; */
+  margin: auto;
+  padding-top: 8rem;
+  width: 60%;
+}
+
+header h1 {
+  text-align: center;
+}
+
+header h1 a {
+  color: #555;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+navigation ul {
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+navigation li {
+  text-align: center;
+}
+
+#main {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+#menu {
+  list-style: none;
+}
+
+#menu li {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#menu .button {
+  display: block;
+  margin: 1rem auto;
+  width: 50%;
+}
+
+input {
+  width: 100%;
+}
+
+footer {
+  background: #e8f2f4;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  padding-top: 2rem;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
